@@ -5,6 +5,15 @@
   margin: 0;
   padding: 0;
 }
+@keyframes stars-twinkle {
+  0%, 100% { opacity: 0.35; }
+  45% { opacity: 1; }
+  62% { opacity: 0.55; }
+}
+@keyframes clouds-drift {
+  0%, 100% { transform: translateY(0) translateX(-0.08em); }
+  50% { transform: translateY(0) translateX(0.12em); }
+}
 :root {
   --bg-color: #f0f0f0;
   --transition-standard: 0.3s ease;
@@ -197,6 +206,7 @@ html.dark .theme-toggle__container .theme-toggle__moon-mask {
 html.dark .theme-toggle__container .theme-toggle__stars {
   transform: translateY(0.5em);
 }
+html.dark .theme-toggle__stars svg { animation: stars-twinkle 2.4s ease-in-out infinite; }
 .theme-toggle__clouds {
   position: absolute;
   left: 0.3em;
@@ -225,6 +235,7 @@ html.dark .theme-toggle__container .theme-toggle__stars {
 html.dark .theme-toggle__container .theme-toggle__clouds {
   transform: translateY(3em);
 }
+html:not(.dark) .theme-toggle__clouds { animation: clouds-drift 5s ease-in-out infinite; }
 
 .theme-toggle__container:hover .theme-toggle__sun {
   transform: translateX(calc(var(--sun-offset) + 0.187em));
