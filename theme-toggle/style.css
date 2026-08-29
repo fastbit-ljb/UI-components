@@ -199,6 +199,9 @@ html.dark.is-animating .theme-toggle__sun { animation: thumb-to-night var(--them
 html:not(.dark).is-animating .theme-toggle__sun { animation: thumb-to-day var(--theme-animation-duration) ease both; }
 html.dark.is-animating .theme-toggle__sun::before { animation: craters-to-night var(--theme-animation-duration) ease both; }
 html:not(.dark).is-animating .theme-toggle__sun::before { animation: craters-to-day var(--theme-animation-duration) ease both; }
+/* Keep the crater layout at its finished angle after the animation ends. */
+html.dark .theme-toggle__sun::before { transform: rotate(-20deg); }
+html:not(.dark) .theme-toggle__sun::before { transform: rotate(0deg); }
 
 .theme-toggle__stars {
   position: absolute;
