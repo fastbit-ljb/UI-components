@@ -136,6 +136,9 @@ body {
 html.dark .theme-toggle__container {
   background: var(--bg-toggle-dark);
 }
+html.dark .theme-toggle__container::after {
+  background: none;
+}
 .theme-toggle__container::after {
   content: "";
   position: absolute;
