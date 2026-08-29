@@ -55,17 +55,8 @@ function handleTransitionEnd(event) {
   docElement.classList.remove("is-animating");
 }
 function initializeTheme() {
-  let savedTheme = null;
-  try {
-    savedTheme = localStorage.getItem("app-theme");
-  } catch (e) {
-    console.warn("Could not access localStorage for theme setting.", e);
-  }
-
-  const isDarkMode = savedTheme
-    ? savedTheme === "dark"
-    : docElement.classList.contains("dark");
-  updateTheme(isDarkMode);
+  // Both variants open in the daytime state by default.
+  updateTheme(false);
 }
 
 themeToggleButton.addEventListener("click", handleThemeToggleClick);

@@ -42,8 +42,8 @@ function handleTransitionEnd(event) {
   docElement.classList.remove("is-animating");
 }
 function initializeTheme() {
-  const isDarkMode = docElement.classList.contains("dark");
-  updateTheme(isDarkMode);
+  // Both variants open in the daytime state by default.
+  updateTheme(false);
 }
 
 themeToggleButton.addEventListener("click", handleThemeToggleClick);
