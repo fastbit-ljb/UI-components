@@ -19,8 +19,8 @@
   75% { --thumb-c1: #bcd5d9; --thumb-c2: #bcd5d9; --thumb-c3: #bcd5d9; --thumb-c4: #bcd5d9; --crater-c1: #8499aa; --crater-c2: #8c9fad; --crater-c3: #8c9fad; }
   100% { --thumb-c1: #b5d5e2; --thumb-c2: #b5d5e2; --thumb-c3: #b5d5e2; --thumb-c4: #b5d5e2; --crater-c1: #7186a4; --crater-c2: #7f93ad; --crater-c3: #7f93ad; }
 }
-@keyframes craters-to-night { from { transform: rotate(0deg); } to { transform: rotate(-30deg); } }
-@keyframes craters-to-day { from { transform: rotate(-30deg); } to { transform: rotate(0deg); } }
+@keyframes craters-to-night { from { transform: rotate(0deg); } to { transform: rotate(-40deg); } }
+@keyframes craters-to-day { from { transform: rotate(-40deg); } to { transform: rotate(0deg); } }
 :root {
   --bg-color: #4aa3d8;
   --transition-standard: 0.8s ease;
@@ -195,7 +195,7 @@ html:not(.dark).is-animating .theme-toggle__sun { animation: thumb-to-night var(
 html.dark.is-animating .theme-toggle__sun::before { animation: craters-to-night var(--theme-animation-duration) ease both; }
 html:not(.dark).is-animating .theme-toggle__sun::before { animation: craters-to-night var(--theme-animation-duration) ease both reverse; }
 /* Keep the crater layout at its finished angle after the animation ends. */
-html.dark .theme-toggle__sun::before { transform: rotate(-30deg); }
+html.dark .theme-toggle__sun::before { transform: rotate(-40deg); }
 html:not(.dark) .theme-toggle__sun::before { transform: rotate(0deg); }
 
 .theme-toggle__stars {
