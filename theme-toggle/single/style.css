@@ -14,14 +14,16 @@
 @property --crater-c3 { syntax: "<color>"; inherits: true; initial-value: transparent; }
 @keyframes thumb-to-night {
   0% { --thumb-c1: #fee600; --thumb-c2: #fee600; --thumb-c3: #fee600; --thumb-c4: #fee600; --crater-c1: transparent; --crater-c2: transparent; --crater-c3: transparent; }
-  33% { --thumb-c1: #c4d8b4; --thumb-c2: #c4d8b4; --thumb-c3: #c4d8b4; --thumb-c4: #c4d8b4; --crater-c1: transparent; --crater-c2: transparent; --crater-c3: transparent; }
-  66% { --thumb-c1: #c4d8b4; --thumb-c2: #c4d8b4; --thumb-c3: #c4d8b4; --thumb-c4: #c4d8b4; --crater-c1: #9aafbd; --crater-c2: #9aafbd; --crater-c3: #9aafbd; }
+  25% { --thumb-c1: #f4e99b; --thumb-c2: #e6e1a3; --thumb-c3: #d9dca8; --thumb-c4: #d0d9aa; --crater-c1: #d4d9b0; --crater-c2: #d4d9b0; --crater-c3: #d4d9b0; }
+  50% { --thumb-c1: #c4d8b4; --thumb-c2: #c4d8b4; --thumb-c3: #c4d8b4; --thumb-c4: #c4d8b4; --crater-c1: #aab9b6; --crater-c2: #aab9b6; --crater-c3: #aab9b6; }
+  75% { --thumb-c1: #bcd5d9; --thumb-c2: #bcd5d9; --thumb-c3: #bcd5d9; --thumb-c4: #bcd5d9; --crater-c1: #8499aa; --crater-c2: #8c9fad; --crater-c3: #8c9fad; }
   100% { --thumb-c1: #b5d5e2; --thumb-c2: #b5d5e2; --thumb-c3: #b5d5e2; --thumb-c4: #b5d5e2; --crater-c1: #7186a4; --crater-c2: #7f93ad; --crater-c3: #7f93ad; }
 }
 @keyframes thumb-to-day {
   0% { --thumb-c1: #b5d5e2; --thumb-c2: #b5d5e2; --thumb-c3: #b5d5e2; --thumb-c4: #b5d5e2; --crater-c1: #7186a4; --crater-c2: #7f93ad; --crater-c3: #7f93ad; }
-  34% { --thumb-c1: #c4d8b4; --thumb-c2: #c4d8b4; --thumb-c3: #c4d8b4; --thumb-c4: #c4d8b4; --crater-c1: #9aafbd; --crater-c2: #9aafbd; --crater-c3: #9aafbd; }
-  67% { --thumb-c1: #c4d8b4; --thumb-c2: #c4d8b4; --thumb-c3: #c4d8b4; --thumb-c4: #c4d8b4; --crater-c1: transparent; --crater-c2: transparent; --crater-c3: transparent; }
+  25% { --thumb-c1: #bcd5d9; --thumb-c2: #bcd5d9; --thumb-c3: #bcd5d9; --thumb-c4: #bcd5d9; --crater-c1: #8499aa; --crater-c2: #8c9fad; --crater-c3: #8c9fad; }
+  50% { --thumb-c1: #c4d8b4; --thumb-c2: #c4d8b4; --thumb-c3: #c4d8b4; --thumb-c4: #c4d8b4; --crater-c1: #aab9b6; --crater-c2: #aab9b6; --crater-c3: #aab9b6; }
+  75% { --thumb-c1: #f4e99b; --thumb-c2: #e6e1a3; --thumb-c3: #d9dca8; --thumb-c4: #d0d9aa; --crater-c1: #d4d9b0; --crater-c2: #d4d9b0; --crater-c3: #d4d9b0; }
   100% { --thumb-c1: #fee600; --thumb-c2: #fee600; --thumb-c3: #fee600; --thumb-c4: #fee600; --crater-c1: transparent; --crater-c2: transparent; --crater-c3: transparent; }
 }
 @keyframes craters-to-night { from { transform: rotate(0deg); } to { transform: rotate(-20deg); } }
