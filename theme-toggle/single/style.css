@@ -218,7 +218,7 @@ html:not(.dark) .theme-toggle__sun::before { transform: rotate(0deg); }
 .theme-toggle__stars svg { display: none; }
 .star-field { position: absolute; inset: 0; }
 .star { position: absolute; display: block; border-radius: 50%; background: #fff; transform-origin: center; }
-.star--big { width: .25em; height: .25em; clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); box-shadow: 0 0 .1em rgba(255,255,255,.95); }
+.star--big { width: .34em; height: .34em; clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); box-shadow: 0 0 .12em rgba(255,255,255,.95); }
 .star--small { width: .055em; height: .055em; opacity: .85; }
 .star--a { left: .28em; top: .74em; }
 .star--b { left: 1.02em; top: .22em; animation-delay: -.8s; }
