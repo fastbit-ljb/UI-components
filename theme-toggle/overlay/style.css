@@ -205,7 +205,7 @@ html.dark .theme-toggle__container .theme-toggle__moon-mask {
 .theme-toggle__stars svg { display: none; }
 .star-field { position: absolute; inset: 0; }
 .star { position: absolute; display: block; border-radius: 50%; background: #fff; transform-origin: center; }
-.star--big { width: .12em; height: .12em; box-shadow: 0 0 .08em rgba(255,255,255,.9); }
+.star--big { width: .17em; height: .17em; box-shadow: 0 0 .1em rgba(255,255,255,.95); }
 .star--small { width: .055em; height: .055em; opacity: .85; }
 .star--a { left: .18em; top: .42em; }.star--b { left: 1.05em; top: .18em; animation-delay: -.8s; }
 .star--c { left: 1.58em; top: 1.08em; animation-delay: -1.55s; }.star--d { left: 2.35em; top: .55em; animation-delay: -2.2s; }
