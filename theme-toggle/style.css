@@ -5,9 +5,31 @@
   margin: 0;
   padding: 0;
 }
+@property --thumb-c1 { syntax: "<color>"; inherits: true; initial-value: #fee600; }
+@property --thumb-c2 { syntax: "<color>"; inherits: true; initial-value: #fee600; }
+@property --thumb-c3 { syntax: "<color>"; inherits: true; initial-value: #fee600; }
+@property --thumb-c4 { syntax: "<color>"; inherits: true; initial-value: #fee600; }
+@property --crater-c1 { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --crater-c2 { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --crater-c3 { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@keyframes thumb-to-night {
+  0% { --thumb-c1: #fee600; --thumb-c2: #fee600; --thumb-c3: #fee600; --thumb-c4: #fee600; --crater-c1: transparent; --crater-c2: transparent; --crater-c3: transparent; }
+  33% { --thumb-c1: #c4d8b4; --thumb-c2: #c4d8b4; --thumb-c3: #c4d8b4; --thumb-c4: #c4d8b4; --crater-c1: transparent; --crater-c2: transparent; --crater-c3: transparent; }
+  66% { --thumb-c1: #c4d8b4; --thumb-c2: #c4d8b4; --thumb-c3: #c4d8b4; --thumb-c4: #c4d8b4; --crater-c1: #9aafbd; --crater-c2: #9aafbd; --crater-c3: #9aafbd; }
+  100% { --thumb-c1: #b5d5e2; --thumb-c2: #b5d5e2; --thumb-c3: #b5d5e2; --thumb-c4: #b5d5e2; --crater-c1: #7186a4; --crater-c2: #7f93ad; --crater-c3: #7f93ad; }
+}
+@keyframes thumb-to-day {
+  0% { --thumb-c1: #b5d5e2; --thumb-c2: #b5d5e2; --thumb-c3: #b5d5e2; --thumb-c4: #b5d5e2; --crater-c1: #7186a4; --crater-c2: #7f93ad; --crater-c3: #7f93ad; }
+  34% { --thumb-c1: #c4d8b4; --thumb-c2: #c4d8b4; --thumb-c3: #c4d8b4; --thumb-c4: #c4d8b4; --crater-c1: #9aafbd; --crater-c2: #9aafbd; --crater-c3: #9aafbd; }
+  67% { --thumb-c1: #c4d8b4; --thumb-c2: #c4d8b4; --thumb-c3: #c4d8b4; --thumb-c4: #c4d8b4; --crater-c1: transparent; --crater-c2: transparent; --crater-c3: transparent; }
+  100% { --thumb-c1: #fee600; --thumb-c2: #fee600; --thumb-c3: #fee600; --thumb-c4: #fee600; --crater-c1: transparent; --crater-c2: transparent; --crater-c3: transparent; }
+}
+@keyframes craters-to-night { from { transform: rotate(0deg); } to { transform: rotate(-20deg); } }
+@keyframes craters-to-day { from { transform: rotate(-20deg); } to { transform: rotate(0deg); } }
 :root {
-  --bg-color: #f0f0f0;
-  --transition-standard: 0.3s ease;
+  --bg-color: #4aa3d8;
+  --transition-standard: 0.8s ease;
+  --theme-animation-duration: 1.4s;
   --tutorial-link-color: rgba(29, 31, 44, 0.48);
   --tutorial-link-hover-color: rgba(29, 31, 44, 0.88);
   --tutorial-link-focus-color: rgba(61, 126, 174, 0.42);
@@ -65,14 +87,14 @@ body {
 }
 
 .theme-toggle {
-  --base-scale: 120px;
+  --base-scale: 26px;
   --toggle-width: 5.625em;
   --toggle-height: 2.5em;
   --radius-pill: 100em;
   --sun-diameter: 2.125em;
   --sun-offset: calc((var(--toggle-height) - var(--sun-diameter)) / 2);
-  --bg-toggle-light: #3d7eae;
-  --bg-toggle-dark: #1d1f2c;
+  --bg-toggle-light: linear-gradient(180deg, #63bce9 0%, #3d8fc3 100%);
+  --bg-toggle-dark: linear-gradient(180deg, #252936 0%, #0b0d12 100%);
   --color-sun: #ecca2f;
   --color-moon: #c4c9d1;
   --color-crater: #959db1;
@@ -93,13 +115,14 @@ body {
 .theme-toggle__container {
   width: var(--toggle-width);
   height: var(--toggle-height);
-  background-color: var(--bg-toggle-light);
+  background: var(--bg-toggle-light);
+  border: 0.035em solid rgba(255, 255, 255, 0.72);
   border-radius: var(--radius-pill);
   cursor: pointer;
 
   position: relative;
 
-  transition: background-color var(--transition-standard);
+  transition: background var(--transition-standard);
 
   overflow: hidden;
 
@@ -107,21 +130,33 @@ body {
 }
 
 html.dark .theme-toggle__container {
-  background-color: var(--bg-toggle-dark);
+  background: var(--bg-toggle-dark);
 }
 .theme-toggle__container::after {
   content: "";
   position: absolute;
   inset: 0;
   box-shadow: 0em 0.05em 0.187em rgba(0, 0, 0, 0.5) inset;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 42%);
   border-radius: var(--radius-pill);
   pointer-events: none;
 }
 
 .theme-toggle__sun {
+  --sun-gradient: radial-gradient(
+    circle at 34% 27%,
+    var(--thumb-c1) 0%,
+    color-mix(in srgb, var(--thumb-c1), var(--thumb-c2) 35%) 14%,
+    var(--thumb-c2) 28%,
+    color-mix(in srgb, var(--thumb-c2), var(--thumb-c3) 50%) 45%,
+    var(--thumb-c3) 64%,
+    color-mix(in srgb, var(--thumb-c3), var(--thumb-c4) 50%) 82%,
+    var(--thumb-c4) 100%
+  );
   width: var(--sun-diameter);
   height: var(--sun-diameter);
-  background-color: var(--color-sun);
+  background:
+    var(--sun-gradient);
   border-radius: 50%;
 
   position: absolute;
@@ -133,58 +168,38 @@ html.dark .theme-toggle__container {
     0em -0.05em 0.05em 0em #a1872a inset, 0 0 0 0.625em var(--halo-color),
     0 0 0 1.25em var(--halo-color), 0 0 0 1.875em var(--halo-color);
 
-  transition: transform var(--transition-standard);
+  transition: transform var(--transition-standard),
+    --thumb-c1 var(--transition-standard), --thumb-c2 var(--transition-standard),
+    --thumb-c3 var(--transition-standard), --thumb-c4 var(--transition-standard),
+    --crater-c1 var(--transition-standard), --crater-c2 var(--transition-standard),
+    --crater-c3 var(--transition-standard);
 
   overflow: hidden;
 }
+.theme-toggle__sun::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 38% 61%, var(--crater-c1) 0 15%, transparent 16%),
+    radial-gradient(circle at 69% 31%, var(--crater-c2) 0 8%, transparent 9%),
+    radial-gradient(circle at 73% 73%, var(--crater-c3) 0 11%, transparent 12%);
+  transform-origin: 50% 50%;
+  pointer-events: none;
+}
 html.dark .theme-toggle__container .theme-toggle__sun {
+  --thumb-c1: #b5d5e2; --thumb-c2: #b5d5e2; --thumb-c3: #b5d5e2; --thumb-c4: #b5d5e2;
+  --crater-c1: #7186a4; --crater-c2: #7f93ad; --crater-c3: #7f93ad;
   transform: translateX(
     calc(var(--toggle-width) - var(--sun-diameter) - var(--sun-offset))
   );
 }
+html.dark.is-animating .theme-toggle__sun { animation: thumb-to-night var(--theme-animation-duration) ease both; }
+html:not(.dark).is-animating .theme-toggle__sun { animation: thumb-to-day var(--theme-animation-duration) ease both; }
+html.dark.is-animating .theme-toggle__sun::before { animation: craters-to-night var(--theme-animation-duration) ease both; }
+html:not(.dark).is-animating .theme-toggle__sun::before { animation: craters-to-day var(--theme-animation-duration) ease both; }
 
-.theme-toggle__moon-mask {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-moon);
-  border-radius: inherit;
-  transform: translateX(100%);
-  transition: transform var(--transition-standard);
-  box-shadow: 0.062em 0.062em 0.062em 0em rgba(254, 255, 239, 0.61) inset,
-    0em -0.062em 0.062em 0em #969696 inset;
-}
-
-html.dark .theme-toggle__container .theme-toggle__moon-mask {
-  transform: translateX(0);
-}
-
-.theme-toggle__crater {
-  position: absolute;
-  background-color: var(--color-crater);
-  border-radius: 50%;
-  box-shadow: 0em 0.03em 0.06em var(--shadow-primary) inset;
-}
-.theme-toggle__crater:nth-of-type(1) {
-  top: 0.75em;
-  left: 0.3em;
-  width: 0.75em;
-  height: 0.75em;
-}
-
-.theme-toggle__crater:nth-of-type(2) {
-  top: 0.9em;
-  left: 1.375em;
-  width: 0.375em;
-  height: 0.375em;
-}
-
-.theme-toggle__crater:nth-of-type(3) {
-  top: 0.3em;
-  left: 0.8em;
-  width: 0.25em;
-  height: 0.25em;
-}
 .theme-toggle__stars {
   position: absolute;
   left: 0.3em;
